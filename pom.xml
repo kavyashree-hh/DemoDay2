@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncodin>UTF-8</project.build.sourceEncodin>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <!-- Dependencies -->
@@ -41,7 +41,7 @@
     <build>
         <plugins>
 
-            <!-- Maven Resources Plugin (for copy-resources) -->
+            <!-- Maven Resources Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -73,8 +73,35 @@
 
             </plugin>
 
+            <!-- Maven JAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.1</version>
+
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.example.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>4.0.0-M16</version>
+            </plugin>
+
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>local-repo</id>
+            <url>file:///C:\exp2report</url>
+        </repository>
+    </distributionManagement>
 
 </project>
 
